@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ *
+ * @category  Embitel
+ * @package   Embitel_Pizza
+ * @author    Deepak Kumar <deepak.kumar@embitel.com>
+ * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pizza_index_form.pizza_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Pizza Information</item>
+        <item name="reverseMetadataMerge" xsi:type="boolean">true</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">pizza_index_form</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Deepak\Mage2RIWA\Block\Adminhtml\Pizza\BackButton"/>
+            <button name="delete" class="Deepak\Mage2RIWA\Block\Adminhtml\Pizza\DeleteButton"/>
+            <button name="reset" class="Deepak\Mage2RIWA\Block\Adminhtml\Pizza\ResetButton"/>
+            <button name="save" class="Deepak\Mage2RIWA\Block\Adminhtml\Pizza\SaveButton"/>
+            <button name="save_and_continue" class="Deepak\Mage2RIWA\Block\Adminhtml\Pizza\SaveAndContinueButton"/>
+        </buttons>
+        <deps>
+            <dep>pizza_index_form.pizza_form_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="pizza_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="pizza/index/save"/>
+        </settings>
+        <dataProvider class="Deepak\Mage2RIWA\Model\Pizza\DataProvider" name="pizza_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="pizza">
+        <settings>
+            <label translate="true">Pizza Information</label>
+        </settings>
+
+        <field name="entity_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pizza</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+            </settings>
+        </field>
+        <field name="status" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pizza</item>
+                    <item name="sortOrder" xsi:type="number">5</item>
+                    <item name="dataScope" xsi:type="string">status</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label>Enable</label>
+            </settings>
+        </field>
+        <field name="name" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pizza</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true"> Pizza Name</label>
+            </settings>
+        </field>
+        
+        
+        <field name="image" formElement="fileUploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="source" xsi:type="string">pizzaimage</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
+                    <item name="dataScope" xsi:type="string">image</item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="pizza/pizza_image/upload"/>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Pizza Image</label>
+                <visible>true</visible>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>

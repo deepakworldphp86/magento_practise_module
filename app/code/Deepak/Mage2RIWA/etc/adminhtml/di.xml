@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+
+<!-- 
+/**
+ *
+ * @category  Embitel
+ * @package   Embitel_Pizza
+ * @author    Deepak Kumar <deepak.kumar@embitel.com>
+ * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="pizza_listing_data_source" xsi:type="string">Deepak\Mage2RIWA\Model\ResourceModel\Pizza\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Deepak\Mage2RIWA\Model\ResourceModel\Pizza\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">website_advertisements</argument>
+            <argument name="eventPrefix" xsi:type="string">pizza_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">pizza_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">>Deepak\Mage2RIWA\Model\ResourceModel\Pizza</argument>
+        </arguments>
+    </type>
+
+    <type name="Deepak\Mage2RIWA\Controller\Adminhtml\Pizza\Image\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">PizzaImageUpload</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="PizzaImageUpload" type="Deepak\Mage2RIWA\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">pizzaimage</argument>
+            <argument name="basePath" xsi:type="string">pizzaimage</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PizzaGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PizzaGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">"Deepak\Mage2RIWA\Model\ResourceModel\Pizza\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">PizzaGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+</config>

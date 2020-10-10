@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Deepak\Mage2RIWA\Api\PizzaRepositoryInterface" type="Deepak\Mage2RIWA\Model\PizzaRepository"/>
+    <preference for="Deepak\Mage2RIWA\Api\Data\PizzaInterface" type="Deepak\Mage2RIWA\Model\Pizza"/>
+    <preference for="Deepak\Mage2RIWA\Api\Data\PizzaSearchResultInterface" type="Deepak\Mage2RIWA\Model\PizzaSearchResult"/>
+</config>

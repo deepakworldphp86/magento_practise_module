@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category  Embitel
+ * @package   Embitel_Adds
+ * @author    Deepak Kumar <deepak.kumar@embitel.com>
+ * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Deepak_Mage2RIWA::manage_pizza" title="Manage Pizza " translate="title" module="Deepak_Mage2RIWA" sortOrder="55" action="pizza"  resource="Deepak_Mage2RIWA::manage_pizza" />
+    </menu>
+</config>
