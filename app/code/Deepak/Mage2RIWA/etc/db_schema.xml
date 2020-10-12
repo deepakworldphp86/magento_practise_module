@@ -1,0 +1,27 @@
+<!-- 
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="deepak_mage2riwa_pizza" resource="default" engine="innodb" comment="Magento 2 Repository,Interface,Web API- Pizza Entity Table">
+	    <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Entity ID"/>
+	    <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Pizza Name"/>
+	    <column xsi:type="varchar" name="code" nullable="true" length="255" comment="Pizza Code"/>
+	    <column xsi:type="varchar" name="size" nullable="true" length="255" comment="Size"/>
+	    <column xsi:type="varchar" name="topping" nullable="true" length="255" comment="Topping"/>
+	    <column xsi:type="varchar" name="ingredient" nullable="true" length="255" comment="Ingredient"/>
+	    <column xsi:type="varchar" name="image" nullable="false" length="255" default="image" comment="Pizza Image"/>
+	    <column xsi:type="decimal" name="price" scale="6" precision="20" unsigned="false" nullable="false" default="0" comment="Price"/>
+	    <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+	    <column xsi:type="smallint" name="website_id" unsigned="true" nullable="true" identity="false" comment="Website ID"/>
+	    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store ID"/>
+	    <column xsi:type="datetime" name="value" on_update="false" nullable="true" comment="Value"/>
+	    <column xsi:type="smallint" name="disabled" unsigned="true" nullable="false" identity="false" default="0" comment="Visibility status"/>
+
+	    <constraint xsi:type="primary" referenceId="PRIMARY">
+		<column name="entity_id"/>
+	    </constraint>
+	</table>
+</schema>

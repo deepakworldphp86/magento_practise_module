@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category  Embitel
+ * @package   Embitel_Adds
+ * @author    Deepak Kumar <deepak.kumar@embitel.com>
+ * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="pzza" frontName="pizza">
+            <module name="Deepak_Mage2RIWA" before="Magento_Backend" />
+        </route>
+    </router>
+</config>
