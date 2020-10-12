@@ -180,7 +180,7 @@ $prodSku=[];
         {
             "body" : {
                     "priceupdate": {
-                            "listskus": <?php echo json_encode($prodSku); ?>
+                            "listskus": <?php echo $this->getLoadedProductSkus(); ?>
                     }
             }
         }
