@@ -77,7 +77,7 @@ class Save extends \Magento\Backend\App\Action
             if (empty($data['entity_id'])) {
                 $data['entity_id'] = null;
             }
-
+           // print_r($data);exit;
 
             /** @var \Magento\Cms\Model\Block $model */
             $model = $this->_objectManager->create('Deepak\Mage2RIWA\Model\Pizza')->load($id);
@@ -105,7 +105,7 @@ class Save extends \Magento\Backend\App\Action
                 //////////////////// email
                 $model->save();
                 $this->messageManager->addSuccess(__('Pizza Saved successfully'));
-                $this->dataPersistor->clear('deepak_pizza');
+                $this->dataPersistor->clear('pizza_data');
 
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['entity_id' => $model->getId()]);
@@ -117,7 +117,7 @@ class Save extends \Magento\Backend\App\Action
                 $this->messageManager->addException($e, __('Something went wrong while saving the pizza.'));
             }
 
-            $this->dataPersistor->set('deepak_pizza', $data);
+            $this->dataPersistor->set('pizza_data', $data);
             return $resultRedirect->setPath('*/*/edit', ['entity_id' => $this->getRequest()->getParam('entity_id')]);
         }
         return $resultRedirect->setPath('*/*/');

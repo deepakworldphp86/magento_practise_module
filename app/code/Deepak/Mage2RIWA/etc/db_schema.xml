@@ -17,9 +17,11 @@
         <column xsi:type="text" name="description" nullable="true" comment="Description"/>
         <column xsi:type="smallint" name="website_id" unsigned="true" nullable="true" identity="false" comment="Website ID"/>
         <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store ID"/>
-        <column xsi:type="datetime" name="value" on_update="false" nullable="true" comment="Value"/>
-        <column xsi:type="smallint" name="disabled" unsigned="true" nullable="false" identity="false" default="0" comment="Visibility status"/>
-
+        <column xsi:type="smallint" name="status" unsigned="true" nullable="false" identity="false" default="0" comment="Visibility status"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>
         </constraint>

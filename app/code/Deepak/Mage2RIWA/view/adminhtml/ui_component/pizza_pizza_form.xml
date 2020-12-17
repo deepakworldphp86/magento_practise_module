@@ -92,7 +92,7 @@
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">pizza</item>
                     <item name="sortOrder" xsi:type="number">10</item>
-                    <item name="dataScope" xsi:type="string">paiiza_name</item>
+                    <item name="dataScope" xsi:type="string">pizza_name</item>
                 </item>
             </argument>
             <settings>
