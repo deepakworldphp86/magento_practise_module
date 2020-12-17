@@ -1,13 +1,13 @@
 <?php
 /**
  *
- * @category  Embitel
- * @package   Embitel_Adds
- * @author    Deepak Kumar <deepak.kumar@embitel.com>
- * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ * @category  Deepak
+ * @package   Deepak_Mage2RIWA
+ * @author    Deepak Kumar <deepak.kumar@deepak.com>
+ * @copyright 2019 Deepak technologies (I) Pvt. Ltd
  */
 
-namespace Deepak\Mage2RIWA\Controller\Adminhtml\PizzaImage;
+namespace Deepak\Mage2RIWA\Controller\Adminhtml\Pizza\Image;
 
 use Magento\Framework\Controller\ResultFactory;
 
@@ -54,9 +54,9 @@ class Upload extends \Magento\Backend\App\Action
      * @return \Magento\Framework\Controller\ResultInterface
      */
     public function execute()
-    {
+    { 
             
-        try {
+         try{
             $result = $this->imageUploader->saveFileToTmpDir('image');
             
             $result['cookie'] = [

@@ -1,10 +1,10 @@
 <?php
 /**
  *
- * @category  Embitel
- * @package   Embitel_Adds
- * @author    Deepak Kumar <deepak.kumar@embitel.com>
- * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ * @category  Deepak
+ * @package   Deepak_Mage2RIWA
+ * @author    Deepak Kumar <deepak.kumar@deepak.com>
+ * @copyright 2019 Deepak technologies (I) Pvt. Ltd
  */
 
 namespace Deepak\Mage2RIWA\Ui\Component\Listing\Column;
@@ -21,8 +21,8 @@ use Magento\Framework\UrlInterface;
 class Actions extends Column
 {
     /** Url path */
-    const URL_PATH_EDIT = 'pizza/index/edit';
-    const URL_PATH_DELETE = 'pizza/index/delete';
+    const URL_PATH_EDIT = 'pizza/pizza/edit';
+    const URL_PATH_DELETE = 'pizza/pizza/delete';
 
     /** @var UrlBuilder */
     protected $actionUrlBuilder;
@@ -82,8 +82,8 @@ class Actions extends Column
                         'href' => $this->urlBuilder->getUrl( $this->deleteUrl, ['entity_id' => $item['entity_id']]),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete %1', $item['title']),
-                            'message' => __('Are you sure you want to delete a %1 record?', $item['title'])
+                            'title' => __('Delete %1', $item['pizza_name']),
+                            'message' => __('Are you sure you want to delete a %1 record?', $item['pizza_name'])
                         ]
                     ];
                 }

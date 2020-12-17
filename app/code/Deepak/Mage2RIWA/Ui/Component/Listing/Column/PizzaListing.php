@@ -1,10 +1,10 @@
 <?php
 /**
  *
- * @category  Embitel
- * @package   Embitel_Adds
- * @author    Deepak Kumar <deepak.kumar@embitel.com>
- * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ * @category  Deepak
+ * @package   Deepak_Mage2RIWA
+ * @author    Deepak Kumar <deepak.kumar@deepak.com>
+ * @copyright 2019 Deepak technologies (I) Pvt. Ltd
  */
 
 namespace Deepak\Mage2RIWA\Ui\Component\Listing\Column;
@@ -67,9 +67,9 @@ class PizzaListing extends Column
                     ).$item[$fieldName];
                 }
                 $item[$fieldName . '_src'] = $url;
-                $item[$fieldName . '_alt'] = $item['name'] ? $item['name'] : '';
+                $item[$fieldName . '_alt'] = $item['pizza_name'] ? $item['pizza_name'] : '';
                 $item[$fieldName . '_url'] = $this->urlBuilder->getUrl(
-                    'pizza/index/edit',
+                    'pizza/pizza/edit',
                     ['entity_id' => $item['entity_id']]
                 );
                 $item[$fieldName . '_orig_src'] = $url;

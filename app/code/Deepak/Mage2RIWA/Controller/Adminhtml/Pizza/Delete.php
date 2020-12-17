@@ -3,7 +3,7 @@
  *
  * @category  Deepak
  * @package   Deepak_Mage2RIWA
- * @author    Deepak Kumar <deepak.kumar@embitel.com>
+ * @author    Deepak Kumar <deepak.kumar@deepak.com>
  * @copyright 2020 Deepak Kumar Individuals
  */
 

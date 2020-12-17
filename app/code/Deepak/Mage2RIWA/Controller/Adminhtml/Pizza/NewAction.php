@@ -4,8 +4,8 @@
  *
  * @category  Deepak
  * @package   Deepak_Mage2RIWA
- * @author    Deepak Kumar <deepak.kumar@embitel.com>
- * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ * @author    Deepak Kumar <deepak.kumar@deepak.com>
+ * @copyright 2019 Deepak technologies (I) Pvt. Ltd
  */
 
 namespace Deepak\Mage2RIWA\Controller\Adminhtml\Pizza;

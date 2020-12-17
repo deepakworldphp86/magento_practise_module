@@ -8,6 +8,6 @@ class Pizza extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 
     protected function _construct()
     {
-        $this->_init('mage2riwa_pizza','entity_id');
+        $this->_init('deepak_mage2riwa_pizza','entity_id');
     }
 }

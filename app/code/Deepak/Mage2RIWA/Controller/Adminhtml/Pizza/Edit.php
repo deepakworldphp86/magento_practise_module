@@ -1,10 +1,10 @@
 <?php
 /**
  *
- * @category  Embitel
- * @package   Embitel_Pizza
- * @author    Deepak Kumar <deepak.kumar@embitel.com>
- * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+ * @category  Deepak
+ * @package   Deepak_Pizza
+ * @author    Deepak Kumar <deepak.kumar@deepak.com>
+ * @copyright 2019 Deepak technologies (I) Pvt. Ltd
  */
 
 

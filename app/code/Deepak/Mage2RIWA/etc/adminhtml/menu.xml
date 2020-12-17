@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <!--
-/**
- *
- * @category  Embitel
- * @package   Embitel_Adds
- * @author    Deepak Kumar <deepak.kumar@embitel.com>
- * @copyright 2019 Embitel technologies (I) Pvt. Ltd
+/** Grid menu xml
+ * @category  Webkul
+ * @package   Webkul_Grid
+ * @author    Webkul
+ * @copyright Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Deepak_Mage2RIWA::manage_pizza" title="Manage Pizza " translate="title" module="Deepak_Mage2RIWA" sortOrder="55" action="pizza"  resource="Deepak_Mage2RIWA::manage_pizza" />
+        <add id="Deepak_Mage2RIWA::manager" title="Pizza Manager" module="Deepak_Mage2RIWA" sortOrder="10" resource="Deepak_Mage2RIWA::manager" />
+        <add id="Deepak_Mage2RIWA::manage_pizza" title="Pizza Manager" module="Deepak_Mage2RIWA" sortOrder="20" parent="Deepak_Mage2RIWA::manager" action="pizza/pizza" resource="Deepak_Mage2RIWA::manage_pizza"/>
     </menu>
 </config>
