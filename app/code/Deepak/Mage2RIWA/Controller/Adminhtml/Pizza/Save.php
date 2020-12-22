@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @category  Deepak
@@ -19,34 +20,31 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\App\RequestInterface;
 
+class Save extends \Magento\Backend\App\Action {
 
-
-class Save extends \Magento\Backend\App\Action
-{
     /**
      * @var DataPersistorInterface
      */
     protected $dataPersistor;
     protected $scopeConfig;
-
     protected $_escaper;
     protected $inlineTranslation;
     protected $_dateFactory;
-   
+
     /**
      * @param Context $context
      * @param \Magento\Framework\Registry $coreRegistry
      * @param DataPersistorInterface $dataPersistor
      */
     public function __construct(
-        Context $context,
-        DataPersistorInterface $dataPersistor,
-        \Magento\Framework\Escaper $escaper,
-        \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Magento\Framework\Stdlib\DateTime\DateTimeFactory $dateFactory
+            Context $context,
+            DataPersistorInterface $dataPersistor,
+            \Magento\Framework\Escaper $escaper,
+            \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
+            \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+            \Magento\Framework\Stdlib\DateTime\DateTimeFactory $dateFactory
     ) {
-       
+
         $this->dataPersistor = $dataPersistor;
         $this->scopeConfig = $scopeConfig;
         $this->_escaper = $escaper;
@@ -61,13 +59,12 @@ class Save extends \Magento\Backend\App\Action
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @return \Magento\Framework\Controller\ResultInterface
      */
-    public function execute()
-    {
+    public function execute() {
 
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
-       
+
         if ($data) {
             $id = $this->getRequest()->getParam('entity_id');
 
@@ -77,7 +74,7 @@ class Save extends \Magento\Backend\App\Action
             if (empty($data['entity_id'])) {
                 $data['entity_id'] = null;
             }
-           // print_r($data);exit;
+
 
             /** @var \Magento\Cms\Model\Block $model */
             $model = $this->_objectManager->create('Deepak\Mage2RIWA\Model\Pizza')->load($id);
@@ -87,16 +84,26 @@ class Save extends \Magento\Backend\App\Action
             }
 
 
-            
-            
+            if (isset($data['size']) && !empty($data['size'])) {
+                $data['size'] = implode(',', $data['size']);
+            }
+            if (isset($data['topping']) && !empty($data['topping'])) {
+                $data['topping'] = implode(',', $data['topping']);
+            }
+            if (isset($data['ingredients']) && !empty($data['ingredients'])) {
+                $data['ingredients'] = implode(',', $data['ingredients']);
+            }
+           // echo "<pre>";
+            //print_r($data);
+           // exit;
             if (isset($data['image'][0]['name']) && isset($data['image'][0]['tmp_name'])) {
-                $data['image'] ='/pizzaimage/'.$data['image'][0]['name'];
+                $data['image'] = '/pizzaimage/' . $data['image'][0]['name'];
             } elseif (isset($data['image'][0]['name']) && !isset($data['image'][0]['tmp_name'])) {
-                $data['image'] =$data['image'][0]['name'];
+                $data['image'] = $data['image'][0]['name'];
             } else {
                 $data['image'] = null;
             }
-            
+
             $model->setData($data);
 
 
@@ -122,4 +129,5 @@ class Save extends \Magento\Backend\App\Action
         }
         return $resultRedirect->setPath('*/*/');
     }
+
 }

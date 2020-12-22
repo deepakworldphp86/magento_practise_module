@@ -11,7 +11,7 @@
         <column xsi:type="varchar" name="code" nullable="true" length="255" comment="Pizza Code"/>
         <column xsi:type="varchar" name="size" nullable="true" length="255" comment="Size"/>
         <column xsi:type="varchar" name="topping" nullable="true" length="255" comment="Topping"/>
-        <column xsi:type="varchar" name="ingredient" nullable="true" length="255" comment="Ingredient"/>
+        <column xsi:type="varchar" name="ingredients" nullable="true" length="255" comment="Ingredients"/>
         <column xsi:type="varchar" name="image" nullable="false" length="255" default="image" comment="Pizza Image"/>
         <column xsi:type="decimal" name="price" scale="6" precision="20" unsigned="false" nullable="false" default="0" comment="Price"/>
         <column xsi:type="text" name="description" nullable="true" comment="Description"/>

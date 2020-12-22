@@ -17,38 +17,44 @@ interface PizzaInterface extends ExtensibleDataInterface
      */
     public function setId($id);
     
-    /**
-     * @return string
+     /**
+     * Get Pizza Name 
+     * @return string|null
      */
-    public function getName();
+    public function getPizzaName();
     
     /**
-     * @param string $name
-     * @return void
+     * set Pizza Name 
+     * @param string $title
+     * @return \Deepak\Mage2RIWA\Api\Data\IngredientInterface
      */
-    public function setName($name);
+    public function setPizzaName($name);
     
     /**
-     * @return \Deepak\Mage2RIWA\Api\Data\IngredientInterface[]
+     * Get Ingredients 
+     * @return string|null
      */
     public function getIngredients();
     
     /**
-     * @param \Deepak\Mage2RIWA\Api\Data\IngredientInterface[] $ingredients
-     * @return void
+     * set Ingredients
+     * @param string $ingredients
+     * @return \Deepak\Mage2RIWA\Api\Data\IngredientInterface
      */
-    public function setIngredients(array $ingredients);
+    public function setIngredients($ingredients);
     
     /**
-     * @return string[]
+     * Get Image 
+     * @return string|null
      */
-    public function getImageUrls();
+    public function getImage();
     
     /**
-     * @param string[] $urls
-     * @return void
+     * set Image
+     * @param string $image
+     * @return \Deepak\Mage2RIWA\Api\Data\IngredientInterface
      */
-    public function setImageUrls(array $urls);
+    public function setImage($urls);
     
     /**
      * @return \Deepak\Mage2RIWA\Api\Data\PizzaExtensionInterface|null
